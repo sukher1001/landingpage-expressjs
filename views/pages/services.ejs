@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/coloring.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="/client/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <%- include('../widgets/header') %>
+        <div id="content" class="no-bottom no-top">
+            <%- include('../widgets/services_section1') %>
+            <%- include('../widgets/testimonial_section1') %>
+        </div>
+        <%- include('../widgets/footer') %>
+    </div>
+    <script src="/client/js/plugins.js"></script>
+    <script src="/client/js/designesia.js"></script>
+</body>
+</html>

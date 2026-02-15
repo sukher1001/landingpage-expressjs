@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kuli IT Beauty - Klinik Kecantikan Profesional">
+    <meta name="keywords" content="beauty clinic, klinik kecantikan, facial, treatment">
+    <meta name="author" content="Kuli IT Beauty">
+
+    <!-- CSS Files -->
+    <link href="/client/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
+    <link href="/client/css/plugins.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/swiper.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/client/css/coloring.css" rel="stylesheet" type="text/css">
+
+    <!-- Color Scheme -->
+    <link id="colors" href="/client/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- Header -->
+        <%- include('../widgets/header') %>
+
+        <!-- Content -->
+        <div id="content" class="no-bottom no-top">
+            <div id="home">
+                <%- include('../widgets/hero_homepage1') %>
+            </div>
+            <%- include('../widgets/info_bar') %>
+            <div id="about">
+                <%- include('../widgets/about_section1') %>
+            </div>
+            <div id="services">
+                <%- include('../widgets/services_section1') %>
+            </div>
+            <div id="process">
+                <%- include('../widgets/process_section1') %>
+            </div>
+            <%- include('../widgets/stats_section1') %>
+            <div id="team">
+                <%- include('../widgets/team_section1') %>
+            </div>
+            <div id="testimonial">
+                <%- include('../widgets/testimonial_section1') %>
+            </div>
+            <div id="pricing">
+                <%- include('../widgets/pricing_section1') %>
+            </div>
+            <div id="faq">
+                <%- include('../widgets/faq_section1') %>
+            </div>
+            <div id="contact">
+                <%- include('../widgets/contact_section1') %>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <%- include('../widgets/footer') %>
+    </div>
+
+    <!-- Javascript Files -->
+    <script src="/client/js/plugins.js"></script>
+    <script src="/client/js/designesia.js"></script>
+    <script src="/client/js/swiper.js"></script>
+    <script src="/client/js/custom-swiper-1.js"></script>
+    
+    <!-- Smooth Scroll Navigation -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle hash navigation on page load
+            if (window.location.hash) {
+                setTimeout(function() {
+                    const target = document.querySelector(window.location.hash);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            }
+
+            // Handle smooth scroll for anchor links
+            document.querySelectorAll('a[href^="/#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const hash = this.getAttribute('href').substring(1);
+                    const target = document.querySelector(hash);
+                    
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        history.pushState(null, null, hash);
+                    }
+                });
+            });
+
+            // Handle hash change
+            window.addEventListener('hashchange', function() {
+                const target = document.querySelector(window.location.hash);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
