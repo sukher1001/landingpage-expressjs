@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/seo-meta', {
+        pageTitle: 'Tentang Kami - Kuli IT Beauty',
+        pageDescription: 'Kuli IT Beauty adalah klinik kecantikan profesional dengan tim ahli berpengalaman yang siap memberikan perawatan terbaik untuk kecantikan dan kesehatan kulit Anda.',
+        pageUrl: 'https://companyprofile.staging-kuliit.cloud/about',
+        pageImage: 'https://companyprofile.staging-kuliit.cloud/client/images/slider/1.jpg'
+    }) %>
     <link href="/client/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/client/css/plugins.css" rel="stylesheet" type="text/css">
     <link href="/client/css/style.css" rel="stylesheet" type="text/css">
@@ -17,6 +20,9 @@
             <%- include('../widgets/about_section1') %>
         </div>
         <%- include('../widgets/footer') %>
+        
+        <!-- Floating Icons -->
+        <%- include('../widgets/floating-icons') %>
     </div>
     <script src="/client/js/plugins.js"></script>
     <script src="/client/js/designesia.js"></script>

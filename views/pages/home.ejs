@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kuli IT Beauty - Klinik Kecantikan Profesional">
-    <meta name="keywords" content="beauty clinic, klinik kecantikan, facial, treatment">
-    <meta name="author" content="Kuli IT Beauty">
+    <%- include('../partials/seo-meta', {
+        pageTitle: 'Kuli IT Beauty - Klinik Kecantikan Profesional Terpercaya',
+        pageDescription: 'Kuli IT Beauty menyediakan layanan perawatan kecantikan profesional seperti facial treatment, body treatment, aesthetic treatment dengan teknologi modern dan tim ahli berpengalaman.',
+        pageUrl: 'https://companyprofile.staging-kuliit.cloud/',
+        pageImage: 'https://companyprofile.staging-kuliit.cloud/client/images/slider/1.jpg'
+    }) %>
 
     <!-- CSS Files -->
     <link href="/client/css/bootstrap.min.css" rel="stylesheet" type="text/css" id="bootstrap">
@@ -59,6 +59,9 @@
 
         <!-- Footer -->
         <%- include('../widgets/footer') %>
+        
+        <!-- Floating Icons -->
+        <%- include('../widgets/floating-icons') %>
     </div>
 
     <!-- Javascript Files -->

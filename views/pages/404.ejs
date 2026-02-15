@@ -1,34 +1,66 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="utf-8">
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/seo-meta', {
+        pageTitle: '404 - Halaman Tidak Ditemukan | Kuli IT Beauty',
+        pageDescription: 'Halaman yang Anda cari tidak ditemukan. Kembali ke homepage Kuli IT Beauty untuk melihat layanan kecantikan kami.',
+        pageUrl: 'https://companyprofile.staging-kuliit.cloud/404',
+        pageImage: 'https://companyprofile.staging-kuliit.cloud/client/images/slider/1.jpg'
+    }) %>
     <link href="/client/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="/client/css/plugins.css" rel="stylesheet" type="text/css">
     <link href="/client/css/style.css" rel="stylesheet" type="text/css">
     <link href="/client/css/coloring.css" rel="stylesheet" type="text/css">
+    <link id="colors" href="/client/css/colors/scheme-01.css" rel="stylesheet" type="text/css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .error-content h1 {
+            font-size: 120px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        .error-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .error-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+        .btn-home {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .btn-home:hover {
+            background: var(--secondary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 <body>
-    <div id="wrapper">
-        <%- include('../widgets/header') %>
-        <div id="content">
-            <section>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-8 offset-lg-2 text-center">
-                            <h1 class="display-1 fw-bold">404</h1>
-                            <h2 class="mb-4">Halaman Tidak Ditemukan</h2>
-                            <p class="lead mb-4">Maaf, halaman yang Anda cari tidak dapat ditemukan.</p>
-                            <a href="/" class="btn-main">Kembali ke Beranda</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+    <div class="error-page">
+        <div class="error-content">
+            <h1>404</h1>
+            <h2>Halaman Tidak Ditemukan</h2>
+            <p>Maaf, halaman yang Anda cari tidak dapat ditemukan.<br>Mungkin halaman telah dipindahkan atau dihapus.</p>
+            <a href="/" class="btn-home">Kembali ke Homepage</a>
         </div>
-        <%- include('../widgets/footer') %>
     </div>
     <script src="/client/js/plugins.js"></script>
-    <script src="/client/js/designesia.js"></script>
 </body>
 </html>

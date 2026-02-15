@@ -1,0 +1,266 @@
+<!-- Floating Social Icons -->
+<div class="floating-icons">
+    <a href="https://wa.me/6281234567890" target="_blank" class="floating-icon whatsapp social-icon" title="WhatsApp">
+        <img src="/client/images/store/wa.png" alt="WhatsApp">
+    </a>
+    <a href="https://www.instagram.com/kuliitbeauty" target="_blank" class="floating-icon instagram social-icon" title="Instagram">
+        <img src="/client/images/store/insta.png" alt="Instagram">
+    </a>
+    <a href="https://www.tiktok.com/@kuliitbeauty" target="_blank" class="floating-icon tiktok social-icon" title="TikTok">
+        <img src="/client/images/store/tiktok.png" alt="TikTok">
+    </a>
+    <a href="https://shopee.co.id/kuliitbeauty" target="_blank" class="floating-icon shopee social-icon" title="Shopee">
+        <img src="/client/images/store/shopee.png" alt="Shopee">
+    </a>
+    <button class="floating-icon toggle-icon" id="toggleFloatingIcons" title="Menu">
+        <img src="/client/images/store/cart.jpg" alt="Cart" class="icon-cart">
+        <span class="icon-close">×</span>
+    </button>
+</div>
+
+<style>
+.floating-icons {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.floating-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    animation: floatUpDown 3s ease-in-out infinite;
+    position: relative;
+}
+
+.floating-icon img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.floating-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Toggle button styles */
+.toggle-icon {
+    background: white;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-icon .icon-close {
+    display: none;
+    font-size: 48px;
+    color: #ff4444;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.toggle-icon.active .icon-cart {
+    display: none;
+}
+
+.toggle-icon.active .icon-close {
+    display: block;
+}
+
+/* Hide social icons initially */
+.social-icon {
+    opacity: 0;
+    transform: translateY(50px) scale(0);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show social icons when active with bounce animation */
+.floating-icons.expanded .social-icon {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+    animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Bounce animation */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0);
+    }
+    50% {
+        transform: translateY(-15px) scale(1.15);
+    }
+    65% {
+        transform: translateY(8px) scale(0.95);
+    }
+    80% {
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Animation delays untuk muncul - dari bawah ke atas */
+.floating-icons.expanded .floating-icon.shopee {
+    animation-delay: 0s;
+}
+
+.floating-icons.expanded .floating-icon.tiktok {
+    animation-delay: 0.15s;
+}
+
+.floating-icons.expanded .floating-icon.instagram {
+    animation-delay: 0.3s;
+}
+
+.floating-icons.expanded .floating-icon.whatsapp {
+    animation-delay: 0.45s;
+}
+
+/* Animation delays untuk menghilang - dari atas ke bawah */
+.floating-icon.whatsapp {
+    transition-delay: 0s;
+}
+
+.floating-icon.instagram {
+    transition-delay: 0.1s;
+}
+
+.floating-icon.tiktok {
+    transition-delay: 0.2s;
+}
+
+.floating-icon.shopee {
+    transition-delay: 0.3s;
+}
+
+/* Keyframe animation untuk floating effect */
+@keyframes floatUpDown {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Hover effect - stop animation */
+.floating-icon:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .floating-icons {
+        right: 15px;
+        bottom: 15px;
+        gap: 12px;
+    }
+    
+    .floating-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .toggle-icon .icon-close {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-icons {
+        right: 10px;
+        bottom: 10px;
+        gap: 10px;
+    }
+    
+    .floating-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .toggle-icon .icon-close {
+        font-size: 36px;
+    }
+}
+
+/* Pulse effect on hover */
+.floating-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.floating-icon:hover::before {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+}
+
+/* Tooltip on hover */
+.floating-icon::after {
+    content: attr(title);
+    position: absolute;
+    right: 70px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.floating-icon:hover::after {
+    opacity: 1;
+}
+
+/* Hide tooltip on mobile */
+@media (max-width: 768px) {
+    .floating-icon::after {
+        display: none;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toggleFloatingIcons');
+    const floatingIcons = document.querySelector('.floating-icons');
+    
+    // Auto expand after 3 seconds
+    setTimeout(function() {
+        floatingIcons.classList.add('expanded');
+        toggleBtn.classList.add('active');
+    }, 3000);
+    
+    // Toggle on click
+    toggleBtn.addEventListener('click', function() {
+        floatingIcons.classList.toggle('expanded');
+        toggleBtn.classList.toggle('active');
+    });
+});
+</script>
