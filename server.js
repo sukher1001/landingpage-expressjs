@@ -17,9 +17,9 @@ app.use(compression());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Static files - serve dari parent directory (public/client)
-app.use('/client', express.static(path.join(__dirname, '../public/client')));
-app.use('/uploads', express.static(path.join(__dirname, '../public/uploads')));
+// Static files - serve dari folder lokal
+app.use('/client', express.static(path.join(__dirname, 'public/client')));
+app.use(express.static(path.join(__dirname, 'public'))); // untuk favicon.ico
 
 // Body parser
 app.use(express.json());
@@ -87,5 +87,5 @@ app.use((err, req, res, next) => {
 
 app.listen(PORT, () => {
     console.log(`🚀 Server running on http://localhost:${PORT}`);
-    console.log(`📁 Serving assets from: ${path.join(__dirname, '../public/client')}`);
+    console.log(`📁 Serving assets from: ${path.join(__dirname, 'public/client')}`);
 });

@@ -1,0 +1,202 @@
+/* Inline Editor Styles */
+
+/* Editable text elements */
+.editable-text {
+    cursor: text;
+    position: relative;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.editable-text:hover {
+    background: rgba(108, 99, 255, 0.1);
+    border-color: rgba(108, 99, 255, 0.3);
+}
+
+.editable-text.editing {
+    background: white;
+    border-color: #6c63ff;
+    box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+    outline: none;
+}
+
+/* Editable images */
+.image-edit-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.editable-image {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-edit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(108, 99, 255, 0.9);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    font-weight: 600;
+    font-size: 16px;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.image-edit-icon i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.image-edit-wrapper:hover .image-edit-icon {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.image-edit-wrapper:hover .editable-image {
+    filter: brightness(0.7);
+}
+
+/* Edit toolbar */
+.edit-toolbar {
+    position: absolute;
+    z-index: 999999;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    display: flex;
+    gap: 8px;
+}
+
+.edit-toolbar button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.edit-toolbar .btn-save {
+    background: #4CAF50;
+    color: white;
+}
+
+.edit-toolbar .btn-save:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+}
+
+.edit-toolbar .btn-edit-link {
+    background: #2196F3;
+    color: white;
+}
+
+.edit-toolbar .btn-edit-link:hover {
+    background: #0b7dda;
+    transform: translateY(-2px);
+}
+
+.edit-toolbar .btn-cancel {
+    background: #f44336;
+    color: white;
+}
+
+.edit-toolbar .btn-cancel:hover {
+    background: #da190b;
+    transform: translateY(-2px);
+}
+
+.edit-toolbar button i {
+    margin-right: 5px;
+}
+
+/* Drag and drop */
+.section-item {
+    cursor: move;
+}
+
+.section-item.dragging {
+    opacity: 0.5;
+}
+
+.section-item.drag-over {
+    border-top: 4px solid #6c63ff;
+}
+
+/* Edit mode indicator */
+.edit-mode-indicator {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #6c63ff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    z-index: 999998;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.edit-mode-indicator i {
+    margin-right: 8px;
+}
+
+/* Hover hints */
+.editable-text::before {
+    content: 'Click to edit';
+    position: absolute;
+    top: -25px;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+}
+
+.editable-text:hover::before {
+    opacity: 1;
+}
+
+/* Button editing */
+.btn-main.editable-text {
+    display: inline-block;
+}
+
+.btn-main.editable-text:hover {
+    background: rgba(108, 99, 255, 0.9) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .edit-toolbar {
+        left: 50% !important;
+        transform: translateX(-50%);
+        bottom: 20px;
+        top: auto !important;
+    }
+    
+    .image-edit-icon {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+    
+    .editable-text::before {
+        display: none;
+    }
+}
